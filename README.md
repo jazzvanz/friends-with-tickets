@@ -13,5 +13,9 @@ Feb. 28, 2024
 
 # Stack 
 - React
+- React Router
 - TypeScript
 - Webpack
+
+# Before Deploying 
+- React Router: I may need to configure the production server to support client side routing (https://create-react-app.dev/docs/deployment/#serving-apps-with-client-side-routing)

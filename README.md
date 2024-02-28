@@ -5,10 +5,13 @@
 - I am working on this personal project while updating some professional skills, so things maybe slow going or not. This changelog to help me keep track of where I left off and what I was planning on doing next. 
 
 Feb. 28, 2024
-- Ran create react-app and added typescript
-- Next: Connecting progress to git repo and adding react router.
-- Setting up basic/first draft routes.
-- Added lazy load and example routes
+- Ran React setup & added Typescript, React Router w/ Lazy loading. 
+    + Setup Repo
+- Next: 
+    - Add our SCSS solution likely styled-components
+    - Add basic test solution (jest?)
+    - Put in place our app real route Heirarchy
+    - Look into getting game live schedule data for something to play with.
 
 - Add our first draft of routes.
 

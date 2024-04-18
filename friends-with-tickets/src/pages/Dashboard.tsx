@@ -1,4 +1,5 @@
 import { Routes, Route, Outlet, Link } from "react-router-dom";
+import GameDayApi from '../APIS/todayGames'
 
 export default function Dashboard() {
   // These routes are defined when this component is loaded on demand via
@@ -38,6 +39,7 @@ function DashboardIndex() {
   return (
     <div>
       <h2>Dashboard Index</h2>
+      <GameDayApi />
     </div>
   );
 }

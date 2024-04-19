@@ -12,6 +12,7 @@ I am changing this project to be a tech test gallery so I may share code samples
 - React Router
 - TypeScript
 - Webpack
+- Styled Components
 
 # App Hierarchy
 

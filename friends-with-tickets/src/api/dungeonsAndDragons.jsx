@@ -15,16 +15,16 @@ function handleError(error) {
 }
 
 export async function establishContact() {
-    const timer = setTimeout(() => {
-        rejects(new Error('Slow API response please try again!'))
-    }, 10000)
+    // const timer = setTimeout(() => {
+    //     // rejects(new Error('Slow API response please try again!'))
+    // }, 10000)
     return await fetch(BASE_URL, requestOptions)
     .then((response) => {
-        clearTimeout(timer)
+        // clearTimeout(timer)
         response.json()
     })
     .catch((error) => {
-        clearTimeout(timer)
+        // clearTimeout(timer)
         handleError(error)
     })
 }

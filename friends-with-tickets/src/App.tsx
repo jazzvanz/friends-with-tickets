@@ -1,26 +1,26 @@
 import * as React from "react";
+import Navgation from './components/nav'
 import { Routes, Route, Outlet, Link } from "react-router-dom";
+import styled from 'styled-components';
 
 const About = React.lazy(() => import("./pages/About"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const DungeonsPage = React.lazy(() => import("./pages/Dungeons"));
 
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: #BF4F74;
+`;
+
 export default function App() {
   return (
     <div>
-      <h1>Tech Test Gallery</h1>
+      <Title>Tech Test Gallery</Title>
 
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route
-            path="about"
-            element={
-              <React.Suspense fallback={<>...</>}>
-                <About />
-              </React.Suspense>
-            }
-          />
           <Route
             path="dragonPromises"
             element={
@@ -47,25 +47,7 @@ export default function App() {
 function Layout() {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/messages">Messages (Dashboard)</Link>
-          </li>
-          <li>
-            <Link to="/dragonPromises">Dungeon and Dragons - Promises</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <hr />
-
+      <Navgation />
       <Outlet />
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { establishContact } from '../APIS/dungeonsAndDragons'
+import { establishContact } from '../api/dungeonsAndDragons'
 
 
 // do we need a timeout

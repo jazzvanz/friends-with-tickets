@@ -22,7 +22,7 @@ export default function App() {
   const returnFlightMin = formData.outGoingDate ? formData.outGoingDate : currentDate;
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>)=> {
     event.preventDefault()
     let submitMessage = 'Check your selected dates are valid.'
 
@@ -35,7 +35,7 @@ export default function App() {
     alert(submitMessage)
   }
 
-  const onChangeFlightData = (event) => {
+  const onChangeFlightData = (event: React.ChangeEvent<HTMLSelectElement> | any): void => {
     const {name, value}= event.target;
     setFormData({...formData, [name]: value});
   };

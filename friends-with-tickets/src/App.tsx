@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const About = React.lazy(() => import("./pages/About"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const DungeonsPage = React.lazy(() => import("./pages/Dungeons"));
+const TicTacToePage = React.lazy(() => import("./pages/ticTacToe"))
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -26,6 +27,14 @@ export default function App() {
             element={
               <React.Suspense fallback={<>...</>}>
                 <DungeonsPage />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="tictactoe"
+            element={
+              <React.Suspense fallback={<>...</>}>
+                <TicTacToePage />
               </React.Suspense>
             }
           />

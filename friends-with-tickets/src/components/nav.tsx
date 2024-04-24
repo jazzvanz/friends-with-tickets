@@ -6,9 +6,10 @@ export default function Navgation() {
         <nav>
             <ul>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
+                {/* <li><Link to="/about">About</Link></li> */}
                 <li><Link to="/dashboard/messages">Messages (Dashboard)</Link></li>
                 <li><Link to="/dragonPromises">Dungeon and Dragons - Promises</Link></li>
+                <li><Link to="/tictactoe">Tic Tac Toe</Link></li>
             </ul>
         </nav>
     )

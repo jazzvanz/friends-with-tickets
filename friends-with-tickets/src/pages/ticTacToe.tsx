@@ -92,38 +92,66 @@ const defaultBoardState: Sqaure[] = [
     }
 ]
 
+function resetBoard() {
+    setBoardState([...defaultBoardState])
+}
+
 export default function TicTacToe() {
     const [currentPlayer, setCurrentPlayer] = useState('X');
-    const [boardState, setBoardState] = useState([...defaultBoardState]);
+    const [boardState, setBoardState] = useState(new Set());
 
-    const GameStatus = () => {
+    const GameStatus = ({gameStatus, player}:any ) => {
+        const gameStatusContent = 'left off'
+
         return (
-            <GameStatusContainer>Player {currentPlayer} Turn</GameStatusContainer>
+            <GameStatusContainer>Player {player} {gameStatusContent}</GameStatusContainer>
         )
     }
 
-    const GameSqaure = ({selectedBy}: any) => {
+    const GameSqaure = ({selectedBy, sqaureNumber, handleSelectSqaure}: any) => {
         return (
-            <GameSqaureStyles>
+            <GameSqaureStyles onClick={() => handleSelectSqaure(currentPlayer, sqaureNumber)}>
                 <span>{selectedBy}</span>
             </GameSqaureStyles>
         )
     }
 
 
-    const GameResetButton = () => <GameReset>Reset Game</GameReset>;
+    const GameResetButton = () => {
+        return (<GameReset onClick={resetBoard}>Reset Game</GameReset>)
+    }
 
+    function handleSelectSqaure(currentPlayer: string, sqaureNumber: number) {
+     
+        console.log(currentPlayer, sqaureNumber)
 
+        if(boardState.has(sqaureNumber)) {
+            console.log('Sqaure has already been selected')
+            return
+        } else {
+            const addSqaure = {
+                sqaureNumber: sqaureNumber,
+                selectedBy: currentPlayer,
+            }
+            boardState.add(addSqaure)
+
+            if(currentPlayer === "X") {
+                setCurrentPlayer("Y")
+            } else {
+                setCurrentPlayer("X")
+            }
+        }
+    }
 
     return (
         <Layout>
-            <Headline>Tic Tac Toe - WIP</Headline>
+            <Headline>Tic Tac Toe</Headline>
          
-            <GameStatus />
+            <GameStatus gameStatus={} player={}/>
 
             <GameboardLayout>
-                 {boardState.map(({selectedBy, sqaureNumber}) => {
-                    return <GameSqaure selectedBy={selectedBy} key={sqaureNumber} />
+                 {defaultBoardState.map(({selectedBy, sqaureNumber}) => {
+                    return <GameSqaure selectedBy={selectedBy} sqaureNumber={sqaureNumber} handleSelectSqaure={() => handleSelectSqaure(currentPlayer, sqaureNumber)} key={sqaureNumber} />
                  })}
             </GameboardLayout>
 
